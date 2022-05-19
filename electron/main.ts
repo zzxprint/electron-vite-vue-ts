@@ -1,4 +1,6 @@
 const { app, BrowserWindow } = require('electron');
+const { join } = require('path');
+const NODE_ENV = process.env.NODE_ENV;
 
 const createWindow = () => {
   const win = new BrowserWindow({
@@ -6,7 +8,11 @@ const createWindow = () => {
     height: 600,
   });
 
-  win.loadURL(`http://${process.env.SERVER_HOST}:${process.env.SERVER_PORT}`);
+  if (NODE_ENV === 'development') {
+    win.loadURL(`http://${process.env.SERVER_HOST}:${process.env.SERVER_PORT}`);
+  } else {
+    win.loadFile(join(__dirname, '../dist/index.html'));
+  }
 };
 
 app.whenReady().then(() => {

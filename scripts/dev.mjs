@@ -12,5 +12,6 @@ const address = server.httpServer.address()
 const env = Object.assign(process.env, {
   SERVER_HOST: address.address,
   SERVER_PORT: address.port,
+  NODE_ENV: 'development',
 })
 await spawn(electron, ['.'], { env });
