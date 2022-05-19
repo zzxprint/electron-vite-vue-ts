@@ -6,7 +6,7 @@ const createWindow = () => {
     height: 600,
   });
 
-  win.loadURL('http://localhost:3000');
+  win.loadURL(`http://${process.env.SERVER_HOST}:${process.env.SERVER_PORT}`);
 };
 
 app.whenReady().then(() => {
