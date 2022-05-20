@@ -10,6 +10,7 @@ const createWindow = () => {
 
   if (NODE_ENV === 'development') {
     win.loadURL(`http://${process.env.SERVER_HOST}:${process.env.SERVER_PORT}`);
+    win.webContents.openDevTools()
   } else {
     win.loadFile(join(__dirname, '../dist/index.html'));
   }

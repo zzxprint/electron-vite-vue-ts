@@ -12,6 +12,15 @@
     "vue:preview": "vite preview",
     "electron": "electron ."
   },
+  "build": {
+    "files": [
+      "dist/**/*",
+      "electron/**/*"
+    ],
+    "directories": {
+      "output": "dist-electron"
+    }
+  },
   "dependencies": {
     "vue": "^3.2.25"
   },
